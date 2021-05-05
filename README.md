@@ -14,7 +14,7 @@ Starting with episode 2 of The .NET Show, I am building a mobile podcast app for
 
 ### Step 4: Offline Support
 
-One big reason for using a podcast player app is offline support, or being able to listen to episodes when you have no Internet connection. For this feature we need to turn 
+One big reason for using a podcast player app is offline support, or being able to listen to episodes when you have no Internet connection. For this feature we need to turn to a community tool.
 
 We're going to use a library called MonkeyCache to achieve this.
 
@@ -152,7 +152,6 @@ private async Task PerformPlay()
     }
     else
     {
-        IsCached = true;
         // In the cache. Play local file
         CurrentStatus = "Playing from Cache...";
         LocalFileStream = File.OpenRead(CachedFileName);
