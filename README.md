@@ -696,6 +696,56 @@ You will be given instructions for adding the DevExpress NuGet feed to Visual St
 DevExpress.XamarinForms.CollectionView
 ```
 
+Update *MainPage.xaml.cs* to initialize the CollectionView:
+
+```c#
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
+
+namespace MobileDnr
+{
+    public partial class MainPage : ContentPage
+    {
+        public MainPage()
+        {
+            InitializeComponent();
+            DevExpress.XamarinForms.CollectionView.Initializer.Init();
+        }
+    }
+}
+```
+
+Add the following line to the `OnCreate` method in *MainActivity.cs* in the Android project:
+
+```c#
+DevExpress.XamarinForms.CollectionView.Initializer.Init();
+```
+
+just before this line:
+
+```c#
+global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+```
+
+Add the following line to the `FinishedLaunching` method in *AppDelegate.cs* in the iOS project:
+
+```c#
+DevExpress.XamarinForms.CollectionView.Initializer.Init();
+```
+
+just before this line:
+
+```c#
+CrossMediaManager.Current.Init();
+```
+
+
+
 Next, let's change the UI to show some information for each show (episode):
 
 ```xaml
