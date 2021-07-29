@@ -13,6 +13,7 @@ namespace MobileDnr
         public MainPage()
         {
             InitializeComponent();
+            DevExpress.XamarinForms.CollectionView.Initializer.Init();
         }
     }
 }

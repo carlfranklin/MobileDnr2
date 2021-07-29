@@ -16,6 +16,7 @@ namespace MobileDnr.Droid
             base.OnCreate(savedInstanceState);
             CrossMediaManager.Current.Init(this);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            DevExpress.XamarinForms.CollectionView.Initializer.Init();
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }

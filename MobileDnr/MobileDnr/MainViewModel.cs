@@ -107,8 +107,15 @@ namespace MobileDnr
             {
                 webClient.DownloadDataCompleted += (s, e) =>
                 {
-                    System.IO.File.WriteAllBytes(CachedFileName, e.Result);
-                    IsCached = true;
+                    try
+                    {
+                        System.IO.File.WriteAllBytes(CachedFileName, e.Result);
+                        IsCached = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        var msg = ex.Message;
+                    }
                 };
 
                 webClient.DownloadDataAsync(Uri);
