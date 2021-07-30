@@ -696,7 +696,7 @@ You will be given instructions for adding the DevExpress NuGet feed to Visual St
 DevExpress.XamarinForms.CollectionView
 ```
 
-Change the constructor in *App.xaml.cs*"
+Change the constructor in *App.xaml.cs*:
 
 ```c#
 public App()
