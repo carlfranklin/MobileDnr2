@@ -8,6 +8,7 @@ namespace MobileDnr
     {
         public App()
         {
+            DevExpress.XamarinForms.CollectionView.Initializer.Init();
             InitializeComponent();
 
             MainPage = new MainPage();
