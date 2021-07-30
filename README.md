@@ -696,46 +696,22 @@ You will be given instructions for adding the DevExpress NuGet feed to Visual St
 DevExpress.XamarinForms.CollectionView
 ```
 
-Update *MainPage.xaml.cs* to initialize the CollectionView:
+Change the constructor in *App.xaml.cs*"
 
 ```c#
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
-
-namespace MobileDnr
+public App()
 {
-    public partial class MainPage : ContentPage
-    {
-        public MainPage()
-        {
-            InitializeComponent();
-            DevExpress.XamarinForms.CollectionView.Initializer.Init();
-        }
-    }
+    DevExpress.XamarinForms.CollectionView.Initializer.Init();
+    InitializeComponent();
+
+    MainPage = new MainPage();
 }
-```
-
-Add the following line to the `OnCreate` method in *MainActivity.cs* in the Android project:
-
-```c#
-DevExpress.XamarinForms.CollectionView.Initializer.Init();
-```
-
-just before this line:
-
-```c#
-global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 ```
 
 Add the following line to the `FinishedLaunching` method in *AppDelegate.cs* in the iOS project:
 
 ```c#
-DevExpress.XamarinForms.CollectionView.Initializer.Init();
+DevExpress.XamarinForms.CollectionView.iOS.Initializer.Init();
 ```
 
 just before this line:
@@ -744,8 +720,6 @@ just before this line:
 CrossMediaManager.Current.Init();
 ```
 
-
-
 Next, let's change the UI to show some information for each show (episode):
 
 ```xaml
@@ -753,7 +727,7 @@ Next, let's change the UI to show some information for each show (episode):
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:MobileDnr"
-             xmlns:dxcv="http://schemas.devexpress.com/xamarin/2014/forms/collectionview"
+             xmlns:dxcv="clr-namespace:DevExpress.XamarinForms.CollectionView;assembly=DevExpress.XamarinForms.CollectionView"
              x:Class="MobileDnr.MainPage">
     
     <ContentPage.BindingContext>
@@ -882,7 +856,7 @@ That's enough change in the ViewModel for now. Let's look at the real changes, w
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:MobileDnr"
-             xmlns:dxcv="http://schemas.devexpress.com/xamarin/2014/forms/collectionview"
+             xmlns:dxcv="clr-namespace:DevExpress.XamarinForms.CollectionView;assembly=DevExpress.XamarinForms.CollectionView"
              x:Class="MobileDnr.MainPage">
 
     <ContentPage.BindingContext>
